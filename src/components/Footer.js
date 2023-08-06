@@ -5,7 +5,7 @@ function Footer() {
   const [inputValue, setInputValue] = useState("");
   console.log("inputValue", inputValue);
   function handleInput(e) {
-    setInputValue(e.target.value);
+    return setInputValue(e.target.value);
   }
 
   function handleBlur() {
