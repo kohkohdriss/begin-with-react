@@ -14,11 +14,8 @@ function ShoppingList({ cart, updateCart }) {
 
   function addToCart(name, price) {
     const currentPlantSaved = cart.find((plant) => plant.name === name);
-    console.log("currentPlantSaved", currentPlantSaved);
-    console.log("cart declaration : ", cart);
 
     if (currentPlantSaved) {
-      console.log("on est là");
       const cartFilteredCurrentPlant = cart.filter(
         (plant) => plant.name !== name
       );
@@ -27,11 +24,8 @@ function ShoppingList({ cart, updateCart }) {
         ...cartFilteredCurrentPlant,
         { name, price, amount: currentPlantSaved.amount + 1 },
       ]);
-      console.log("cart if  : ", cart);
     } else {
-      console.log("on est en else ");
       updateCart([...cart, { name, price, amount: 1 }]);
-      console.log("cart else : ", cart);
     }
   }
 
@@ -62,9 +56,8 @@ function ShoppingList({ cart, updateCart }) {
           } else if (activeCategory === category) {
             // Si activeCategory est égale à la catégorie de l'élément
             // Afficher l'élément
-            console.log("activeCategory shopinglist", activeCategory);
             return (
-              <div key={id} style={{ backgroundColor: "red" }}>
+              <div key={id}>
                 <PlantItem
                   cover={cover}
                   name={name}
@@ -87,26 +80,3 @@ function ShoppingList({ cart, updateCart }) {
 }
 
 export default ShoppingList;
-
-/* <ul className="lmj-plant-list">
-        {plantList.map(({ id, cover, name, water, light, price, category }) => {
-          if (!activeCategory || activeCategory === category) {
-            
-            
-            return (
-              <div key={id}>
-                <PlantItem
-                  cover={cover}
-                  name={name}
-                  water={water}
-                  light={light}
-                  price={price}
-                />
-                <button onClick={() => addToCart(name, price)}>Ajouter</button>
-              </div>
-            );
-          } else {
-            return null;
-          }
-        })}
-      </ul> */

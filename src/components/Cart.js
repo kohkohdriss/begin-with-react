@@ -31,6 +31,7 @@ function Cart({ cart, updateCart }) {
           <button
             onClick={() => {
               updateCart([]);
+              localStorage.removeItem("cart");
             }}
           >
             Vider le panier

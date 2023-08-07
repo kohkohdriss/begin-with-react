@@ -8,8 +8,6 @@ function Categories({ setActiveCategory, categories, activeCategory }) {
         value={activeCategory}
         onChange={(e) => {
           setActiveCategory(e.target.value);
-          console.log("e event category", e.target.value);
-          console.log("activeCategory", activeCategory);
         }}
         className="lmj-categories-select"
       >

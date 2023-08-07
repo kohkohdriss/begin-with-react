@@ -11,7 +11,7 @@ function CareScale({ scaleValue, careType }) {
     );
 
   return (
-    <div style={{ backgroundColor: "red" }}>
+    <div>
       {range.map((rangeElem) =>
         scaleValue >= rangeElem ? (
           <span key={rangeElem.toString()}>{scaleType}</span>

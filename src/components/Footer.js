@@ -1,9 +1,32 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "../styles/Footer.css";
+// import Cart from "./Cart";
 
-function Footer() {
+function Footer({ cart }) {
   const [inputValue, setInputValue] = useState("");
-  console.log("inputValue", inputValue);
+
+  // dans ce cas à chaque à chaque saisie l'alert s'affiche car footer est re_render
+  // useEffect(() => {
+  //   console.log("cette alert s'affiche à chaque rendu");
+  // });
+
+  //l'alert s'affiche au premier rendu du footer et une seule fois
+  // useEffect(() => {
+  //   console.log("cette alert s'affiche à chaque rendu");
+  // }, []);
+
+  //l'alert s'affiche au premier rendu du footer et dans le cas de mise à jour de Cart
+  // useEffect(() => {
+  //   console.log("cette alert s'affiche à chaque rendu");
+  // }, [cart]);
+
+  //cet effet est util dans le cas de nétoiyage, typiquement dans le cas de setInterval dans useEfect,
+  //on doit lancer la fonction clearInterval dans la fonction déclaré dans useEfect, sinon j'aurai des fuites de mémoire.
+  useEffect(() => {
+    return () =>
+      console.log("cette alert s'affiche quand footer est retiré du DOM");
+  });
+
   function handleInput(e) {
     return setInputValue(e.target.value);
   }

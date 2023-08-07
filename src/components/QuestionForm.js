@@ -3,7 +3,6 @@ import { useState } from "react";
 function QuestionForm() {
   const [inputValue, setInputValue] = useState("Posez votre question ici");
   const error = inputValue.includes("f");
-  console.log("inputValue : ", inputValue);
 
   function checkValue(value) {
     if (!inputValue.includes("f")) {
